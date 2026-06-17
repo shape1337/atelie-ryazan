@@ -7,11 +7,15 @@ export default function Services(){
   },[])
 
   return (
-    <section>
-      <h2>Прайс-лист</h2>
+    <section aria-labelledby="services-title">
+      <h2 id="services-title">Прайс-лист</h2>
       <ul>
         {services.map(s=> (
-          <li key={s.id}>{s.name} — {s.price} руб. ({s.duration_minutes} мин)</li>
+          <li key={s.id} className="service-item">
+            <strong>{s.name}</strong>
+            <div className="service-meta">{s.price} руб · {s.duration_minutes} мин</div>
+            <p className="service-desc">{s.description}</p>
+          </li>
         ))}
       </ul>
     </section>

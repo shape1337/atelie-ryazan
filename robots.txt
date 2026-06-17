@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://atelie-ryazan.ru/sitemap.xml

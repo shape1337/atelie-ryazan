@@ -31,15 +31,17 @@ export default function Contacts(){
   },[])
 
   return (
-    <section>
-      <h2>Контакты</h2>
-      <p>Адрес: г. Рязань, ул. Примерная, 1</p>
-      <p>Телефон: <a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+    <section aria-labelledby="contacts-title">
+      <h2 id="contacts-title">Контакты</h2>
+      <address>
+        <p>Адрес: г. Рязань, ул. Примерная, 1</p>
+        <p>Телефон: <a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+      </address>
       <p>
-        <a href="https://wa.me/79001234567" target="_blank" rel="noreferrer">WhatsApp</a> ·
-        <a href="https://t.me/yourtelegram" target="_blank" rel="noreferrer">Telegram</a>
+        <a href="https://wa.me/79001234567" target="_blank" rel="noreferrer noopener">WhatsApp</a> ·
+        <a href="https://t.me/yourtelegram" target="_blank" rel="noreferrer noopener">Telegram</a>
       </p>
-      <div id="yamap" style={{width: '100%', height: 400}}></div>
+      <div id="yamap" style={{width: '100%', height: 400}} aria-hidden="false"></div>
     </section>
   )
 }
