@@ -10,11 +10,16 @@ export default function Gallery(){
   return (
     <section aria-labelledby="gallery-title">
       <h2 id="gallery-title">Галерея работ</h2>
+      <p>Ниже — примеры наших работ. Каждое изделие шилось или корректировалось
+        с учётом индивидуальных пожеланий клиента.</p>
       <div className="gallery-grid" role="list">
         {items.map((it, idx) => (
           <figure key={idx} role="listitem">
-            <img src={it.src} alt={it.alt} />
-            <figcaption>{it.caption}</figcaption>
+            <img src={it.src} alt={it.alt} loading="lazy" />
+            <figcaption>
+              <strong>{it.caption}</strong>
+              <div className="caption-desc">Краткое описание работы и использованные материалы.</div>
+            </figcaption>
           </figure>
         ))}
       </div>

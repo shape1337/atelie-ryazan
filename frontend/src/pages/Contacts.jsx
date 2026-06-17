@@ -36,11 +36,16 @@ export default function Contacts(){
       <address>
         <p>Адрес: г. Рязань, ул. Примерная, 1</p>
         <p>Телефон: <a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+        <p>Email: <a href="mailto:info@atelie-ryazan.ru">info@atelie-ryazan.ru</a></p>
       </address>
       <p>
         <a href="https://wa.me/79001234567" target="_blank" rel="noreferrer noopener">WhatsApp</a> ·
-        <a href="https://t.me/yourtelegram" target="_blank" rel="noreferrer noopener">Telegram</a>
+        <a href="https://t.me/yourtelegram" target="_blank" rel="noreferrer noopener">Telegram</a> ·
+        <a href="https://www.instagram.com/your_insta" target="_blank" rel="noreferrer noopener">Instagram</a>
       </p>
+      <h3>Режим работы</h3>
+      <p>Пн–Пт: 10:00–19:00 · Сб: 10:00–16:00 · Вс: выходной</p>
+      <p>Для срочных заказов возможен индивидуальный график по договорённости.</p>
       <div id="yamap" style={{width: '100%', height: 400}} aria-hidden="false"></div>
     </section>
   )

@@ -13,10 +13,14 @@ export default function BookingForm(){
     e.preventDefault()
     setStatus('sending')
     try{
+      // Простая нормализация телефона: оставить только цифры и добавить +7 если нужно
+      const normalizedPhone = form.phone.replace(/[^0-9]/g, '');
+      const payload = { ...form, phone: (normalizedPhone.length === 10 ? '7' + normalizedPhone : normalizedPhone) }
+
       const res = await fetch('/api/appointments', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify(payload)
       })
       const data = await res.json()
       if (data.success) setStatus('ok')
@@ -26,9 +30,9 @@ export default function BookingForm(){
 
   return (
     <form onSubmit={submit} className="booking-form" aria-label="Форма записи на примерку">
-      <label>Имя<input aria-label="Имя" value={form.name} onChange={e=>setForm({...form, name: e.target.value})} required /></label>
-      <label>Телефон<input aria-label="Телефон" value={form.phone} onChange={e=>setForm({...form, phone: e.target.value})} required /></label>
-      <label>Email (опц.)<input aria-label="Email" value={form.email} onChange={e=>setForm({...form, email: e.target.value})} /></label>
+      <label>Имя<input placeholder="Иван Иванов" aria-label="Имя" value={form.name} onChange={e=>setForm({...form, name: e.target.value})} required /></label>
+      <label>Телефон<input placeholder="+7 (900) 123-45-67" aria-label="Телефон" value={form.phone} onChange={e=>setForm({...form, phone: e.target.value})} required /></label>
+      <label>Email (опц.)<input type="email" placeholder="you@example.com" aria-label="Email" value={form.email} onChange={e=>setForm({...form, email: e.target.value})} /></label>
       <label>Услуга
         <select aria-label="Услуга" value={form.service_id} onChange={e=>setForm({...form, service_id: e.target.value})} required>
           <option value="">-- выберите --</option>
