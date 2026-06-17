@@ -1,7 +1,7 @@
 FROM node:18-alpine AS builder
 WORKDIR /app
-COPY ../frontend/package.json ../frontend/package-lock.json* ./
-COPY ../frontend ./frontend
+COPY frontend/package.json frontend/package-lock.json* ./
+COPY frontend ./frontend
 WORKDIR /app/frontend
 RUN npm install
 RUN npm run build
