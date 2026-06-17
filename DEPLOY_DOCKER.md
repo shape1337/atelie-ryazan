@@ -54,7 +54,7 @@ docker-compose logs -f web
 apt install -y certbot
 # Остановите временно nginx из контейнера, если он использует 80/443
 docker-compose stop web
-certbot certonly --standalone -d yourdomain.ru -d www.yourdomain.ru
+certbot certonly --standalone -d khrapov-ryazan-atelie.ru -d www.khrapov-ryazan-atelie.ru
 # После получения сертификата запустите web обратно
 docker-compose start web
 ```
