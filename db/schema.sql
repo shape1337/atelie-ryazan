@@ -33,7 +33,6 @@ CREATE TABLE IF NOT EXISTS `appointments` (
   CONSTRAINT `fk_appointments_service` FOREIGN KEY (`service_id`) REFERENCES `services`(`id`) ON DELETE RESTRICT
 );
 
--- Примеры данных (опционально)
 INSERT INTO services (name, description, price, duration_minutes) VALUES
 ('Подшивка платья', 'Аккуратная подшивка юбок и платьев', 500, 30),
 ('Укорачивание рукавов', 'Укорачивание или удлинение рукавов', 700, 45);

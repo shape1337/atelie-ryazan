@@ -15,7 +15,7 @@ export default function Gallery(){
       <div className="gallery-grid" role="list">
         {items.map((it, idx) => (
           <figure key={idx} role="listitem">
-            <img src={it.src} alt={it.alt} loading="lazy" />
+            <img src={it.src} alt={it.alt} loading="lazy" style={{display: 'block'}} width={400} height={300} />
             <figcaption>
               <strong>{it.caption}</strong>
               <div className="caption-desc">Краткое описание работы и использованные материалы.</div>

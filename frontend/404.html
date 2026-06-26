@@ -1,20 +1,137 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Страница не найдена — 404</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена — Премиальное ателье</title>
     <style>
-      body{font-family:Arial,Helvetica,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}
-      .wrap{text-align:center}
-      a{color:#0066cc}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #212529;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        /* Фирменная шапка сайта */
+        .header {
+            background-color: #008CA8;
+            color: #FFFFFF;
+            padding: 20px 40px;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Блок ошибки 404 */
+        .error-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .error-code {
+            font-size: 130px;
+            font-weight: 900;
+            color: #008CA8;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+        .error-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #212529;
+        }
+        .error-message {
+            font-size: 16px;
+            color: #6c757d;
+            max-width: 550px;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+        /* Кнопка */
+        .btn-home {
+            display: inline-block;
+            background-color: #008CA8;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14px 35px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+        .btn-home:hover {
+            background-color: #006f85;
+        }
+
+        /* Футер */
+        .footer {
+            background-color: #008CA8;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 16px;
+            margin-top: auto;
+        }
+        .footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <h1>404 — Страница не найдена</h1>
-      <p>Возможно, вы искали главную страницу.</p>
-      <p><a href="/">Перейти на главную</a></p>
-    </div>
-  </body>
+</head>
+<body>
+
+    <header class="header">
+        <h1>Премиальное ателье — Рязань</h1>
+        <nav class="nav-links">
+            <a href="/">Главная</a>
+            <a href="/#price">Прайс-лист</a>
+            <a href="/#order">Запись</a>
+            <a href="/#gallery">Галерея</a>
+            <a href="/#contacts">Контакты</a>
+        </nav>
+    </header>
+
+    <main class="error-container">
+        <div class="error-code">404</div>
+        <h2 class="error-title">Страница не найдена</h2>
+        <p class="error-message">
+            Запрашиваемый адрес не существует, перенесен или временно недоступен. 
+            Проверьте правильность написания ссылки или вернитесь на главную страницу.
+        </p>
+        <a href="/" class="btn-home">На главную</a>
+    </main>
+
+    <footer class="footer">
+        <p>© Премиальное ателье — Рязань. Тел: <a href="tel:+79001234567">+7 (900) 123-45-67</a></p>
+    </footer>
+
+</body>
 </html>

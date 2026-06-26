@@ -6,7 +6,14 @@ export default function BookingForm(){
   const [status, setStatus] = useState(null)
 
   useEffect(()=>{
-    fetch('/api/services').then(r=>r.json()).then(setServices).catch(()=>{})
+    fetch('/api/services').then(r=>{
+      if (!r.ok) throw new Error('Network response was not ok: ' + r.status)
+      return r.json()
+    }).then(setServices).catch((err)=>{
+      console.error('Failed to fetch /api/services for booking form', err)
+      // оставляем services пустым, форма покажет сообщение
+      setServices([])
+    })
   },[])
 
   async function submit(e){
@@ -22,9 +29,13 @@ export default function BookingForm(){
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       })
-      const data = await res.json()
-      if (data.success) setStatus('ok')
-      else setStatus('error')
+      let data
+      try{ data = await res.json() } catch(e){ data = null }
+      if (res.ok && data && data.success) setStatus('ok')
+      else {
+        console.error('Appointment submission failed', res.status, data)
+        setStatus('error')
+      }
     } catch(e){ setStatus('error') }
   }
 
@@ -46,7 +57,8 @@ export default function BookingForm(){
       <button className="btn-primary" type="submit">Записаться</button>
       {status === 'sending' && <p>Отправка...</p>}
       {status === 'ok' && <p>Спасибо! Ваша заявка принята.</p>}
-      {status === 'error' && <p>Ошибка при отправке.</p>}
+      {status === 'error' && <p style={{color:'crimson'}}>Ошибка при отправке. Проверьте соединение или попробуйте позже.</p>}
+      {services.length === 0 && <p style={{color:'crimson'}}>Список услуг недоступен — обновите страницу или свяжитесь по телефону.</p>}
     </form>
   )
 }
