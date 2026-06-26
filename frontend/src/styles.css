@@ -1,27 +1,147 @@
-:root{
-	--accent: #0ea5a4; /* teal */
-	--accent-2: #0369a1; /* deep blue for accents */
+:root {
+	--accent: #0ea5a4;
+	/* teal */
+	--accent-2: #0369a1;
+	/* deep blue for accents */
 	--bg: #f7fcfb;
 	--muted: #55606a;
 	--text: #0f172a;
 }
-body{ font-family: Inter, Arial, Helvetica, sans-serif; margin:0; padding:0; background:var(--bg); color:var(--text) }
-.container{ max-width:1000px; margin:0 auto; padding:16px }
-.site-header{ background:linear-gradient(90deg,var(--accent) 0%, var(--accent-2) 100%); color:#fff; padding:18px 0 }
-.site-header h1{ margin:0; font-size:20px }
-.site-header nav a{ color:#fff; margin-left:14px; text-decoration:none; font-weight:600 }
-.site-root .site-footer{ background:var(--accent-2); color:#fff; padding:12px 0; margin-top:24px }
-.booking-form{ display:flex; flex-direction:column; gap:10px; max-width:560px }
-label{ display:flex; flex-direction:column; font-size:14px }
-input, select, textarea{ padding:10px; font-size:15px; border:1px solid #e6eef0; border-radius:8px; background:#fff }
-.btn-primary{ background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer }
-.gallery-grid{ display:flex; gap:12px; flex-wrap:wrap }
-.gallery-grid img{ display:block; max-width:100%; height:auto; border-radius:8px }
-.service-item{ padding:12px; border-bottom:1px solid #eef4f3 }
-.service-meta{ color:var(--muted); font-size:13px }
-.service-desc{ margin:6px 0 0 0; color:var(--muted) }
 
-@media (max-width:600px){
-	.site-header nav a{ display:inline-block; margin:8px 8px 0 0 }
-	.container{ padding:12px }
+body {
+	font-family: Inter, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	background: var(--bg);
+	color: var(--text)
+}
+
+.container {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 16px
+}
+
+.site-header {
+	background: linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%);
+	color: #fff;
+	padding: 18px 0
+}
+
+.site-header h1 {
+	margin: 0;
+	font-size: 20px
+}
+
+.site-header nav a {
+	color: #fff;
+	margin-left: 14px;
+	text-decoration: none;
+	font-weight: 600
+}
+
+.site-root .site-footer {
+	background: var(--accent-2);
+	color: #fff;
+	padding: 12px 0;
+	margin-top: 24px
+}
+
+.booking-form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	max-width: 560px
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+	font-size: 14px
+}
+
+input,
+select,
+textarea {
+	padding: 10px;
+	font-size: 15px;
+	border: 1px solid #e6eef0;
+	border-radius: 8px;
+	background: #fff
+}
+
+.btn-primary {
+	background: linear-gradient(90deg, var(--accent), var(--accent-2));
+	color: #fff;
+	border: none;
+	padding: 10px 14px;
+	border-radius: 8px;
+	cursor: pointer
+}
+
+.gallery-grid {
+	display: flex;
+	gap: 12px;
+	flex-wrap: wrap
+}
+
+.gallery-grid img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: 8px
+}
+
+.service-item {
+	padding: 12px;
+	border-bottom: 1px solid #eef4f3
+}
+
+.service-meta {
+	color: var(--muted);
+	font-size: 13px
+}
+
+.service-desc {
+	margin: 6px 0 0 0;
+	color: var(--muted)
+}
+
+/* 1. Задаем всему экрану режим flex-контейнера */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. Основной контент заставляем растягиваться и занимать все свободное место */
+/* Убедитесь, что весь ваш контент между шапкой и футером обернут в тег <main> или блок с классом, например, .content */
+main, .main-content {
+    flex: 1 0 auto;
+}
+
+/* 3. Футер жестко прижимаем к низу и не даем ему сжиматься */
+footer, .footer {
+    flex-shrink: 0;
+    background-color: #005B7F; /* Ваш темно-синий цвет */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 25px 20px;
+    width: 100%;
+}
+
+@media (max-width:600px) {
+	.site-header nav a {
+		display: inline-block;
+		margin: 8px 8px 0 0
+	}
+
+	.container {
+		padding: 12px
+	}
 }
